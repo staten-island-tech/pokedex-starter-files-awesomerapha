@@ -20,9 +20,11 @@ const DOMStrings = {
 function getPkmn() {
   DOMStrings.input.addEventListener("submit", async function(e) {
     e.preventDefault();
+    const getting = DOMStrings.name.value;
+    const lower = getting.toLowerCase();
     try {
       const result = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${DOMStrings.name.value}`
+        `https://pokeapi.co/api/v2/pokemon/${lower}`
       );
       const data = await result.json();
       //console.log(data);
